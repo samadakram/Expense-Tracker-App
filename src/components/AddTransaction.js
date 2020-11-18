@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { TransactionContext } from '../context/GlobalContext';
 
 export const AddTransaction = ()=> {
 
+    const { addTransaction } = useContext(TransactionContext);
+
+    const handleAddition = (e) =>{
+        e.preventDefault();
+    }
 
     return(
         <div>
             <h3>Add New Transaction</h3>
-            <form>
+            <form onSubmit={handleAddition}>
                 <div className="form-control">
                     <label htmlFor="description">
                         Description
