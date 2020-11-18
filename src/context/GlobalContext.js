@@ -15,6 +15,15 @@ export const TransactionProvider = ({children}) => {
 
     let [state , dispatch] = useReducer(TransactionReducer, initialTransactions);
 
+    // Actions
+
+    function deleteTransaction(id){
+        dispatch({
+            type: 'DELETE_TRANSACTION',
+            payload: id
+        });
+    }
+
     function addTransaction(transObj) {
         dispatch({
             type: "ADD_TRANSACTION",
@@ -28,7 +37,8 @@ export const TransactionProvider = ({children}) => {
     return(
         <TransactionContext.Provider value={{
             transactions: state,
-            addTransaction
+            addTransaction,
+            deleteTransaction
         }}>
             {children}
         </TransactionContext.Provider>
