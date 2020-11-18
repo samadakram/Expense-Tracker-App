@@ -13,7 +13,7 @@ export const AddTransaction = ()=> {
         e.preventDefault();
         addTransaction({
             desc: newDesc,
-            amount: newAmount
+            amount: +newAmount
         })
     }
 
