@@ -1,12 +1,20 @@
-import React, {useContext} from 'react';
+import React, { useState , useContext } from 'react';
 import { TransactionContext } from '../context/GlobalContext';
 
 export const AddTransaction = ()=> {
 
     const { addTransaction } = useContext(TransactionContext);
 
+    // State
+    const [newDesc , setDesc] = useState("");
+    const [newAmount , setAmount] = useState(0);
+
     const handleAddition = (e) =>{
         e.preventDefault();
+        addTransaction({
+            desc: newDesc,
+            amount: newAmount
+        })
     }
 
     return(
@@ -20,6 +28,7 @@ export const AddTransaction = ()=> {
                     <input type="text" 
                            id="description" 
                            placeholder="Detail of Trnsaction"
+                           onChange={(e)=>setDesc(e.target.value)}
                     />
                 </div>
                 <div className="form-control">
@@ -29,6 +38,7 @@ export const AddTransaction = ()=> {
                     <input  type="number"
                             id="transactionamount"
                             placeholder="Enter Transaction amount"
+                            onChange={(e)=> setAmount(e.target.value)}
                     />
                 </div>
                 <button className="btn">
