@@ -3,7 +3,7 @@ import { TransactionContext } from '../context/GlobalContext';
 
 export const TransactionHistory = () => {
 
-    let transactions = useContext(TransactionContext);
+    let { transactions } = useContext(TransactionContext);
 
     return (
         <div>
