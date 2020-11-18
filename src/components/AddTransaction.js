@@ -14,7 +14,10 @@ export const AddTransaction = ()=> {
         addTransaction({
             desc: newDesc,
             amount: +newAmount
-        })
+        });
+
+        setDesc("");
+        setAmount("");
     }
 
     return(
@@ -25,7 +28,8 @@ export const AddTransaction = ()=> {
                     <label htmlFor="description">
                         Description
                     </label>
-                    <input type="text" 
+                    <input type="text"
+                           value={newDesc}
                            id="description" 
                            placeholder="Detail of Trnsaction"
                            onChange={(e)=>setDesc(e.target.value)}
@@ -36,6 +40,7 @@ export const AddTransaction = ()=> {
                         Transaction Amount
                     </label>
                     <input  type="number"
+                            value={newAmount}
                             id="transactionamount"
                             placeholder="Enter Transaction amount"
                             onChange={(e)=> setAmount(e.target.value)}
