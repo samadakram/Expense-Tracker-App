@@ -1,13 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TransactionContext } from '../context/GlobalContext';
 
 export const TransactionHistory = () => {
 
-    let transactions = [
-        {desc: "Project 1 Income", amount: 500},
-        {desc: "Project 1 Salaries", amount: -100},
-        {desc: "Project 2 Income", amount: 1000},
-        {desc: "Project 2 Salaries", amount: -500},
-    ];
+    let transactions = useContext(TransactionContext);
 
     return (
         <div>
