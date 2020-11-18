@@ -3,7 +3,7 @@ import { TransactionContext } from '../context/GlobalContext';
 
 export const TransactionHistory = () => {
 
-    let { transactions } = useContext(TransactionContext);
+    let { transactions, deleteTransaction } = useContext(TransactionContext);
 
     return (
         <div>
@@ -14,7 +14,7 @@ export const TransactionHistory = () => {
                         <li key={id} className={transObj.amount < 0 ? "minus" : "plus"}>
                     {transObj.desc}
                     <span>${transObj.amount}</span>
-                    <button className="delete-btn">X</button>
+                    <button className="delete-btn" onClick={()=> deleteTransaction(transObj.id)} >X</button>
                 </li>
                     )
                 })}
