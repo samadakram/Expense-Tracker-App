@@ -15,7 +15,7 @@ export const TransactionHistory = () => {
             <ul className="list">
                 {transactions.map((transObj, id)=>{
                     return(
-                        <li className={transObj.amount < 0 ? "minus" : "plus"}>
+                        <li key={id} className={transObj.amount < 0 ? "minus" : "plus"}>
                     {transObj.desc}
                     <span>${transObj.amount}</span>
                     <button className="delete-btn">X</button>
